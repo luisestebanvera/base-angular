@@ -9,7 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
-    "coverage": "ng test --code-coverage"
+    "coverage": "ng test --code-coverage",
+    "mock:server": "json-server --watch test-helpers/db.js",
+    "server:test": "concurrently --kill-others \"npm run mock:server\" \"npm run test\"",
+    "server:coverage": "concurrently --kill-others \"npm run mock:server\" \"npm run coverage\""
   },
   "private": true,
   "dependencies": {
@@ -28,6 +31,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
     "lodash-es": "^4.17.11",
+    "node-sass": "^4.11.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },
@@ -41,6 +45,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
+    "concurrently": "^4.1.0",
     "faker": "^4.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
