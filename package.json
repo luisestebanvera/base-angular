@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "analyzer": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
     "coverage": "ng test --code-coverage",
-    "mock:server": "json-server --watch test-helpers/data/db.js",
+    "mock:server": "json-server --watch test-helpers/db/db.js",
     "server:test": "concurrently --kill-others \"npm run mock:server\" \"npm run test\"",
     "server:coverage": "concurrently --kill-others \"npm run mock:server\" \"npm run coverage\""
   },
